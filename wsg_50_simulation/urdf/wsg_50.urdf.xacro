@@ -63,7 +63,7 @@
   </link>
 
   <!-- GRIPPER LEFT -->
-  <joint name="${name}_finger_left_joint" type="prismatic">
+  <joint name="${name}_finger_left_joint" type="fixed">
      <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
      <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
      <parent link="${name}_base_link"/>
@@ -95,8 +95,8 @@
              <mesh filename="package://wsg_50_simulation/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
 	     <!--box size="0.0175 0.03 0.024"/-->
           </geometry>
-          <material name="black">
-		<color rgba="0 0 0 0"/>
+          <material name="white">
+		<color rgba="1 1 1 1"/>
       	  </material>
       </visual>
 
@@ -118,7 +118,7 @@
 
   <!-- LEFT FINGER -->
   <joint name="${name}_guide_joint_finger_left" type="fixed">
-     <origin xyz="${finger_tip} 0 ${finger_length}" rpy="0 0 0" />
+     <origin xyz="${-finger_tip} 0 0" rpy="0 0 0" />
      <parent link="${name}_gripper_left"/>
      <child link="${name}_finger_left" />
      <dynamics friction="100" damping="100" />
@@ -140,8 +140,8 @@
           <geometry>
              <mesh filename="package://wsg_50_simulation/meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
           </geometry>
-          <material name="black">
-		<color rgba="0 0 0 0"/>
+          <material name="white">
+		<color rgba="1 1 1 1"/>
       	  </material>
       </visual>
 
@@ -162,7 +162,7 @@
 
   <!-- GRIPPER RIGHT -->
 
-  <joint name="${name}_finger_right_joint" type="prismatic">
+  <joint name="${name}_finger_right_joint" type="fixed">
      <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
      <origin xyz="0 0 0" rpy="0 0 3.14159" />
      <parent link="${name}_base_link"/>
@@ -194,8 +194,8 @@
              <mesh filename="package://wsg_50_simulation/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
 	     <!--box size="0.0175 0.03 0.024"/-->
           </geometry>
-          <material name="black">
-		<color rgba="0 0 0 0"/>
+          <material name="white">
+		<color rgba="1 1 1 1"/>
       	  </material>
       </visual>
 
@@ -217,7 +217,7 @@
   <!-- RIGHT FINGER -->
 
   <joint name="${name}_guide_joint_finger_right" type="fixed">
-     <origin xyz="${finger_tip} 0 ${finger_length}" rpy="0 0 0" />
+     <origin xyz="${-finger_tip} 0 0" rpy="0 0 0" />
      <parent link="${name}_gripper_right"/>
      <child link="${name}_finger_right" />
      <dynamics friction="100" damping="100" />
@@ -239,8 +239,8 @@
           <geometry>
              <mesh filename="package://wsg_50_simulation/meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
           </geometry>
-          <material name="black">
-		<color rgba="0 0 0 0"/>
+          <material name="white">
+		<color rgba="1 1 1 1"/>
       	  </material>
       </visual>
 
@@ -261,4 +261,3 @@
 </xacro:macro>
 
 </robot>
-
